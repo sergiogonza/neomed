@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoMed Experience</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:"Nunito Sans", sans-serif;
+    background:#000;
+    color:#fff;
+    overflow:hidden;
+}
+
+/* 💊 LOGO */
+#logoCanvas{
+    position:fixed;
+    top:20px;
+    left:20px;
+    width:65px;
+    height:65px;
+    z-index:10;
+    opacity:0.9;
+}
+
+/* NAV */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 5%;
+    display:flex;
+    justify-content:flex-end;
+    z-index:10;
+    letter-spacing:3px;
+}
+
+header a{
+    margin-left:30px;
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    opacity:0.7;
+}
+
+/* SECTION */
+.section{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    visibility:hidden;
+}
+
+.wrapper-outer,.wrapper-inner{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.background{
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:0 10%;
+    text-align:center;
+    position:absolute;
+}
+
+.background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.3));
+}
+
+/* TEXT */
+h2{
+    font-family:"Playfair Display", serif;
+    font-size:clamp(2rem,6vw,5rem);
+    letter-spacing:0.2em;
+    z-index:2;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:700px;
+    line-height:1.6;
+    font-size:1rem;
+    opacity:0.85;
+    z-index:2;
+}
+
+/* ✨ HIGHLIGHT */
+mark{
+    background:none;
+    position:relative;
+    color:#fff;
+}
+
+mark::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-3px;
+    width:0%;
+    height:2px;
+    background:#a8e6cf;
+    transition:width 0.6s ease;
+}
+
+mark.active::after{
+    width:100%;
+}
+
+/* IMÁGENES */
+.first .background{
+background-image:url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600");
+}
+
+.second .background{
+background-image:url("https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1600");
+}
+
+.third .background{
+background-image:url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1600");
+}
+
+.fourth .background{
+background-image:url("https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1600");
+}
+
+.fifth .background{
+background-image:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600");
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="logoCanvas"></canvas>
+
+<header>
+<a href="#first">Inicio</a>
+<a href="#second">Sueroterapia</a>
+<a href="#third">Wellness</a>
+<a href="#fourth">Protocolos</a>
+<a href="#fifth">Reserva</a>
+</header>
+
+<!-- SECCIONES -->
+
+<section id="first" class="section first">
+<div class="wrapper-outer"><div class="wrapper-inner">
+<div class="background">
+<h2>NeoMed</h2>
+<p>
+Experiencia clínica enfocada en <mark>bienestar integral</mark>,
+<mark>equilibrio celular</mark> y <mark>regeneración</mark>.
+</p>
+</div></div></div>
+</section>
+
+<section id="second" class="section second">
+<div class="wrapper-outer"><div class="wrapper-inner">
+<div class="background">
+<h2>Sueroterapia</h2>
+<p>
+Protocolos intravenosos diseñados para <mark>hidratación profunda</mark>,
+<mark>recuperación energética</mark> y <mark>optimización metabólica</mark>.
+</p>
+</div></div></div>
+</section>
+
+<section id="third" class="section third">
+<div class="wrapper-outer"><div class="wrapper-inner">
+<div class="background">
+<h2>Wellness</h2>
+<p>
+Ambiente diseñado para inducir <mark>relajación total</mark>,
+<mark>balance mental</mark> y <mark>armonía corporal</mark>.
+</p>
+</div></div></div>
+</section>
+
+<section id="fourth" class="section fourth">
+<div class="wrapper-outer"><div class="wrapper-inner">
+<div class="background">
+<h2>Protocolos</h2>
+<p>
+Cada tratamiento sigue procesos de <mark>evaluación clínica</mark>,
+<mark>dosificación precisa</mark> y <mark>seguimiento personalizado</mark>.
+</p>
+</div></div></div>
+</section>
+
+<section id="fifth" class="section fifth">
+<div class="wrapper-outer"><div class="wrapper-inner">
+<div class="background">
+<h2>Reserva</h2>
+<p>
+Inicia tu proceso hacia el <mark>bienestar avanzado</mark> y una
+<mark>recuperación optimizada</mark> en un entorno de tranquilidad.
+</p>
+</div></div></div>
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* PAGE NAV */
+let sections=document.querySelectorAll(".section"),
+outer=document.querySelectorAll(".wrapper-outer"),
+inner=document.querySelectorAll(".wrapper-inner"),
+bg=document.querySelectorAll(".background"),
+current=-1,anim=false;
+
+gsap.set(outer,{yPercent:100});
+gsap.set(inner,{yPercent:-100});
+
+function goTo(i,dir){
+if(anim)return;
+anim=true;
+
+let d=dir===-1?-1:1;
+
+let tl=gsap.timeline({
+defaults:{duration:1.2,ease:"power2.inOut"},
+onComplete:()=>anim=false
+});
+
+if(current>=0){
+tl.to(bg[current],{yPercent:-15*d})
+.set(sections[current],{autoAlpha:0});
+}
+
+gsap.set(sections[i],{autoAlpha:1});
+
+tl.fromTo([outer[i],inner[i]],
+{yPercent:(i)=>i?-100*d:100*d},
+{yPercent:0},0)
+.fromTo(bg[i],
+{yPercent:15*d},
+{yPercent:0},0)
+.fromTo(sections[i].querySelectorAll("h2,p"),
+{y:80,opacity:0},
+{y:0,opacity:1,stagger:0.1},0.3);
+
+current=i;
+}
+
+window.addEventListener("wheel",e=>{
+if(e.deltaY>0) goTo((current+1)%sections.length,1);
+else goTo((current-1+sections.length)%sections.length,-1);
+});
+
+document.querySelectorAll("header a").forEach(a=>{
+a.onclick=e=>{
+e.preventDefault();
+let i=[...sections].findIndex(s=>s.id===a.getAttribute("href").substring(1));
+goTo(i,1);
+};
+});
+
+goTo(0,1);
+
+/* ✨ HIGHLIGHT SCROLL */
+gsap.utils.toArray("mark").forEach(el=>{
+ScrollTrigger.create({
+trigger:el,
+start:"top 80%",
+onEnter:()=>el.classList.add("active")
+});
+});
+
+/* 💊 PÍLDORA 3D */
+const canvas=document.getElementById("logoCanvas");
+const engine=new BABYLON.Engine(canvas,true);
+const scene=new BABYLON.Scene(engine);
+
+const camera=new BABYLON.ArcRotateCamera("",0,1.2,3,BABYLON.Vector3.Zero(),scene);
+const light=new BABYLON.HemisphericLight("",new BABYLON.Vector3(0,1,0),scene);
+
+const d=0.5,l=1.2;
+
+const body=BABYLON.MeshBuilder.CreateCylinder("",{height:l-d,diameter:d});
+body.rotation.z=Math.PI/2;
+
+const cap=BABYLON.MeshBuilder.CreateSphere("",{diameter:d});
+cap.position.x=l/2-d/2;
+
+const cap2=cap.clone("");
+cap2.position.x*=-1;
+
+const pill=BABYLON.Mesh.MergeMeshes([body,cap,cap2],true);
+
+const mat=new BABYLON.PBRMetallicRoughnessMaterial("",scene);
+mat.baseColor=new BABYLON.Color3(1,0.75,0.85);
+mat.roughness=0.4;
+
+pill.material=mat;
+
+scene.registerBeforeRender(()=>{pill.rotation.y+=0.01;});
+engine.runRenderLoop(()=>scene.render());
+window.addEventListener("resize",()=>engine.resize());
+</script>
+
+</body>
+</html>
